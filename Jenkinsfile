@@ -1,7 +1,5 @@
 pipeline {
     agent any
-}
-
     stages {
         stage('pipeline start') {
             steps {
@@ -11,8 +9,7 @@ pipeline {
         stage('validate cloning') {
             steps {
                 sh 'pwd;ls'
-                }
+            }
         }
     }
-    
 }
