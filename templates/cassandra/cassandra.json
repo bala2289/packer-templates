@@ -1,0 +1,37 @@
+{
+    "_comment" : "Packer Template to create cassandra based on ubuntu 16.04 AMI",
+    "variables": {},
+    "builders": [{
+      "access_key": "",
+      "secret_key": "",
+      "type": "amazon-ebs",
+      "region": "us-east-2",
+      "source_ami": "ami-0653e888ec96eab9b",
+      "instance_type": "t2.micro",
+      "ssh_username": "ubuntu",
+      "ami_name": "Bluejeans-cassandra-{{isotime \"2006-01-02T1504\"}}"
+    }],
+    "provisioners": [
+      {
+      "execute_command": "echo 'packer' | sudo -S sh -c '{{ .Vars }} {{ .Path }}'",
+      "type": "shell",
+      "inline": [
+        "export DEBIAN_FRONTEND=noninteractive",
+        "echo \"deb https://apache.bintray.com/couchdb-deb xenial main\" | sudo tee -a /etc/apt/sources.list",
+        "curl -L https://couchdb.apache.org/repo/bintray-pubkey.asc | sudo apt-key add -",
+        "sudo apt-get update",
+        "sudo apt-get update",
+        "sudo apt-get install -y couchdb"
+        ]
+    }
+  ],
+    "post-processors": [
+      [
+        {
+          "output": "manifest.json",
+          "strip_path": true,
+          "type": "manifest"
+        }
+      ]
+    ]
+  }

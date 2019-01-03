@@ -1,3 +1,4 @@
+#!/usr/bin/env groovy
 pipeline {
     agent any
     stages {
@@ -6,10 +7,12 @@ pipeline {
                 sh 'echo "pipeline initiated.."'
             }
         }
-        stage('validate cloning') {
+        stage('packer validate template') {
             steps {
-                sh 'pwd;ls'
+                sh 'chmod +x /usr/local/bin/packer'
+                sh 'pwd'
+                sh 'for i in `git diff --name-only $GIT_PREVIOUS_COMMIT $GIT_COMMIT|grep *.json`; do packer validate $i;done'
             }
         }
-    }
+     }
 }
