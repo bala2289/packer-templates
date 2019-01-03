@@ -14,5 +14,10 @@ pipeline {
                 sh 'for i in `find templates/  -name *.json`;do packer validate $i; done'
             }
         }
+        stage('packer build') {
+            steps {
+                sh 'for i in `find templates/  -name *.json`;do packer build $i; done'
+            }
+        }
      }
 }
