@@ -11,7 +11,7 @@ pipeline {
             steps {
                 sh 'chmod +x /usr/local/bin/packer'
                 sh 'pwd'
-                sh 'for i in `git diff --name-only $GIT_PREVIOUS_COMMIT $GIT_COMMIT|grep *.json`; do packer validate $i;done'
+                sh 'for i in `find templates/  -name *.json`;do packer validate $i; done'
             }
         }
      }
