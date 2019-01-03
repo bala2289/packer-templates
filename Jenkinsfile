@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('pipeline start') {
             steps {
-                sh 'echo "pipeline initiated.."'
+                sh 'echo "pipeline initiated..."'
             }
         }
         stage('packer validate template') {
