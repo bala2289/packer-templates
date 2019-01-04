@@ -9,7 +9,7 @@
       "source_ami": "ami-098ea097c34fdc638",
       "instance_type": "t2.micro",
       "ssh_username": "ubuntu",
-      "ami_name": "Bluejeans-couchdb-v-{{isotime \"2006-01-02T1504\"}}",
+      "ami_name": "Bluejeans-couchdb-{{isotime \"2006-01-02:15:04\"}}",
       "ami_regions": [
         "us-east-1",
         "us-west-1"
