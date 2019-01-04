@@ -9,7 +9,6 @@ pipeline {
         }
         stage('packer validate template') {
             steps {
-                sh 'pwd',
                 sh 'for i in `git diff --name-only $GIT_PREVIOUS_COMMIT$GIT_COMMIT|grep json`; do packer validate $i;done'
             }
         }
