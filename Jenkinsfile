@@ -8,11 +8,13 @@ pipeline {
             }
         }
         stage('packer validate template') {
+            when { changeset "*.json"}
             steps {
                 sh 'for i in `git diff --name-only $GIT_PREVIOUS_COMMIT $GIT_COMMIT|grep json`; do packer validate $i;done'
             }
         }
-        stage('packer build') {
+        stage('packer build AMI') {
+            when { changeset "*.json"}
             steps {
                 sh 'for i in `git diff --name-only $GIT_PREVIOUS_COMMIT $GIT_COMMIT|grep json`; do packer build $i;done'
             }
