@@ -6,7 +6,7 @@
       "secret_key": "",
       "type": "amazon-ebs",
       "region": "us-east-2",
-      "source_ami": "ami-099d2274676317387,us-east-2",
+      "source_ami": "ami-098ea097c34fdc638",
       "instance_type": "t2.micro",
       "ssh_username": "ubuntu",
       "ami_name": "Bluejeans-couchdb-v-{{isotime \"2006-01-02T1504\"}}"
