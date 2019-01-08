@@ -13,7 +13,7 @@ pipeline {
         stage('packer validate template') {
             when { 
                 anyOf {
-                    changeset "*.json"
+                    changeset "**/*.json"
                     }
                 }
             steps {
@@ -23,7 +23,7 @@ pipeline {
         stage('packer build AMI') {
             when { 
                 anyOf {
-                    changeset "*.json"
+                    changeset "**/*.json"
                     }
                 }
             steps {
