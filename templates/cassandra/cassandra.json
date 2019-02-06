@@ -6,7 +6,7 @@
       "secret_key": "",
       "type": "amazon-ebs",
       "region": "us-east-2",
-      "source_ami": "ami-0e2b34a39d5f6a490",
+      "source_ami": "ami-0ecd05ba255cd1391",
       "instance_type": "t2.micro",
       "ssh_username": "ubuntu",
       "ami_name": "Bluejeans-cassandra-{{isotime \"2006-01-02-15-04\"}}",
